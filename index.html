@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Bowl Builder</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+
+<body>
+    <main class="container">
+        <section class="form-section">
+            <form id="EnergyBowlForm">
+                <h2>Build Your Energy Bowl</h2>
+                
+                <!-- user information -->
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name"><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone"><br><br>
+                <!-- size -->
+                <label for="size">Choose a size:</label>
+                <select id="size" name="size">
+                    <option value="regular">Regular</option>
+                    <option value="large">Large</option>
+                </select><br>
+                <!-- base -->
+                <label for="base">Choose a base:</label>
+                <select id="base" name="base">
+                    <option value="white_rice">White Rice</option>
+                    <option value="brown_rice">Brown Rice</option>
+                    <option value="mixed_greens">Mixed Greens</option>
+                </select><br>
+                <!-- protein -->
+                <label for="protein">Choose a protein:</label>
+                <select id="protein" name="protein">
+                    <option value="chicken">Chicken</option>
+                    <option value="beef">Beef</option>
+                    <option value="tofu">Tofu</option>
+                    <option value="salmon">Salmon</option>
+                    <option value="none">None</option>
+                </select><br>
+                <!-- toppings -->
+                <label for="toppings">Choose your toppings:</label><br>
+                <input type="checkbox" id="avocado" name="toppings" value="avocado">
+                <label for="avocado">Avocado</label><br>
+                <input type="checkbox" id="tomato" name="toppings" value="tomato">
+                <label for="tomato">Tomato</label><br>
+                <input type="checkbox" id="lettuce" name="toppings" value="lettuce">
+                <label for="lettuce">Lettuce</label><br>
+                <input type="checkbox" id="cucumber" name="toppings" value="cucumber">
+                <label for="cucumber">Cucumber</label><br>
+                <input type="checkbox" id="onion" name="toppings" value="onion">
+                <label for="onion">Onion</label><br>
+                <input type="checkbox" id="shredded_carrot" name="toppings" value="shredded_carrot">
+                <label for="shredded_carrot">Shredded Carrot</label><br>
+                <input type="checkbox" id="corn" name="toppings" value="corn">
+                <label for="corn">Corn</label><br>  
+                <input type="checkbox" id="black_beans" name="toppings" value="black_beans">
+                <label for="black_beans">Black Beans</label><br>
+                <input type="checkbox" id="edamame" name="toppings" value="edamame">
+                <label for="edamame">Edamame</label><br>
+                <!-- cheese -->
+                <label for="cheese">Choose a cheese:</label>
+                <select id="cheese" name="cheese">
+                    <option value="cheddar">Shredded Cheddar</option>
+                    <option value="mozzarella">Shredded Mozzarella</option>
+                    <option value="feta">Feta</option>
+                    <option value="goat">Goat Cheese</option>
+                    <option value="none">None</option>
+                </select><br>
+                <!-- sauce -->
+                <label for="Sauce" >Choose a sauce:</label>
+                <select id="sauce" name="sauce">
+                    <option value="garlic_aoli">Garlic Aoli</option>
+                    <option value="italian">Italian</option>
+                    <option value="balsamic">Balsamic Vinaigrette</option>
+                    <option value="honey_mustard">Honey Mustard Vinaigrette</option>
+                    <option value="teriyaki">Teriyaki</option>
+                    <option value="none">None</option>
+                </select><br>
+                <!-- special instructions -->
+                <label for="special_instructions">Special Instructions:</label><br>
+                <textarea id="special_instructions" name="special_instructions"></textarea><br>
+            
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>
