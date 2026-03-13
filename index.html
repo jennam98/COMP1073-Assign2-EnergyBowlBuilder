@@ -20,94 +20,136 @@
             <form id="EnergyBowlForm">
                 <h2>Build Your Energy Bowl</h2>
 
-            
                 <!-- user information -->
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name"><br>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email"><br>
-                <label for="phone">Phone:</label>
-                <input type="tel" id="phone" name="phone"><br><br>
+                 <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name"/>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email"><br>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number"><br><br>
+                </div>
                 <!-- size -->
-                <label for="size">Choose a size:</label>
-                <select id="size" name="size">
-                    <option value="">-- Select size --</option>
-                    <option value="regular">Regular</option>
-                    <option value="large">Large</option>
-                </select><br>
+                 <div class="form-group">
+                    <label for="size">Choose a size:</label>
+                    <select id="size" name="size">
+                        <option value="">-- Select size --</option>
+                        <option value="regular">Regular</option>
+                        <option value="large">Large</option>
+                    </select><br>
+                </div>    
                 <!-- base -->
-                <label for="base">Choose a base:</label>
-                <select id="base" name="base">
-                    <option value="white_rice">White Rice</option>
-                    <option value="brown_rice">Brown Rice</option>
-                    <option value="mixed_greens">Mixed Greens</option>
-                </select><br>
+                 <div class="form-group">
+                    <label for="base">Choose a base:</label>
+                    <select id="base" name="base">
+                        <option value="white_rice">White Rice</option>
+                        <option value="brown_rice">Brown Rice</option>
+                        <option value="mixed_greens">Mixed Greens</option>
+                    </select><br>
+                </div>    
                 <!-- protein -->
-                <label for="protein">Choose a protein:</label>
-                <select id="protein" name="protein">
-                    <option value="chicken">Chicken</option>
-                    <option value="beef">Beef</option>
-                    <option value="tofu">Tofu</option>
-                    <option value="salmon">Salmon</option>
-                    <option value="none">None</option>
-                </select><br>
+                 <div class="form-group">
+                    <label for="protein">Choose a protein:</label>
+                    <select id="protein" name="protein">
+                        <option value="chicken">Chicken</option>
+                        <option value="beef">Beef</option>
+                        <option value="tofu">Tofu</option>
+                        <option value="salmon">Salmon</option>
+                        <option value="none">None</option>
+                    </select><br><br>
+                </div>    
                 <!-- toppings -->
-                <label for="toppings">Choose your toppings:</label><br>
-                <input type="checkbox" id="avocado" name="toppings" value="avocado">
-                <label for="avocado">Avocado</label><br>
-                <input type="checkbox" id="tomato" name="toppings" value="tomato">
-                <label for="tomato">Tomato</label><br>
-                <input type="checkbox" id="lettuce" name="toppings" value="lettuce">
-                <label for="lettuce">Lettuce</label><br>
-                <input type="checkbox" id="cucumber" name="toppings" value="cucumber">
-                <label for="cucumber">Cucumber</label><br>
-                <input type="checkbox" id="onion" name="toppings" value="onion">
-                <label for="onion">Onion</label><br>
-                <input type="checkbox" id="shredded_carrot" name="toppings" value="shredded_carrot">
-                <label for="shredded_carrot">Shredded Carrot</label><br>
-                <input type="checkbox" id="corn" name="toppings" value="corn">
-                <label for="corn">Corn</label><br>  
-                <input type="checkbox" id="black_beans" name="toppings" value="black_beans">
-                <label for="black_beans">Black Beans</label><br>
-                <input type="checkbox" id="edamame" name="toppings" value="edamame">
-                <label for="edamame">Edamame</label><br>
+                 <div class="form-group">
+                    <label for="toppings">Choose your toppings:</label><br>
+                    <div class="checkbox-grid">
+                        <input type="checkbox" id="avocado" name="toppings" value="avocado">
+                        <label for="avocado">Avocado</label><br>
+                        <input type="checkbox" id="tomato" name="toppings" value="tomato">
+                        <label for="tomato">Tomato</label><br>
+                        <input type="checkbox" id="lettuce" name="toppings" value="lettuce">
+                        <label for="lettuce">Lettuce</label><br>
+                        <input type="checkbox" id="cucumber" name="toppings" value="cucumber">
+                        <label for="cucumber">Cucumber</label><br>
+                        <input type="checkbox" id="onion" name="toppings" value="onion">
+                        <label for="onion">Onion</label><br>
+                        <input type="checkbox" id="shredded_carrot" name="toppings" value="shredded_carrot">
+                        <label for="shredded_carrot">Shredded Carrot</label><br>
+                        <input type="checkbox" id="corn" name="toppings" value="corn">
+                        <label for="corn">Corn</label><br>  
+                        <input type="checkbox" id="black_beans" name="toppings" value="black_beans">
+                        <label for="black_beans">Black Beans</label><br>
+                        <input type="checkbox" id="edamame" name="toppings" value="edamame">
+                        <label for="edamame">Edamame</label><br>
+                    </div>
+                </div>        
                 <!-- cheese -->
-                <label for="cheese">Choose a cheese:</label>
-                <select id="cheese" name="cheese">
-                    <option value="">-- Select cheese --</option>
-                    <option value="cheddar">Shredded Cheddar</option>
-                    <option value="mozzarella">Shredded Mozzarella</option>
-                    <option value="feta">Feta</option>
-                    <option value="goat">Goat Cheese</option>
-                    <option value="none">None</option>
-                </select><br>
+                 <div class="form-group">
+                    <label for="cheese">Choose a cheese:</label>
+                    <select id="cheese" name="cheese">
+                        <option value="">-- Select cheese --</option>
+                        <option value="cheddar">Shredded Cheddar</option>
+                        <option value="mozzarella">Shredded Mozzarella</option>
+                        <option value="feta">Feta</option>
+                        <option value="goat">Goat Cheese</option>
+                        <option value="none">None</option>
+                    </select><br>
+                </div>    
                 <!-- sauce -->
-                <label for="Sauce" >Choose a sauce:</label>
-                <select id="sauce" name="sauce">
-                    <option value="">-- Select sauce --</option>
-                    <option value="garlic_aoli">Garlic Aoli</option>
-                    <option value="italian">Italian</option>
-                    <option value="balsamic">Balsamic Vinaigrette</option>
-                    <option value="honey_mustard">Honey Mustard Vinaigrette</option>
-                    <option value="teriyaki">Teriyaki</option>
-                    <option value="none">None</option>
-                </select><br>
+                 <div class="form-group">
+                    <label for="Sauce" >Choose a sauce:</label>
+                    <select id="sauce" name="sauce">
+                        <option value="">-- Select sauce --</option>
+                        <option value="garlic_aoli">Garlic Aoli</option>
+                        <option value="italian">Italian</option>
+                        <option value="balsamic">Balsamic Vinaigrette</option>
+                        <option value="honey_mustard">Honey Mustard Vinaigrette</option>
+                        <option value="teriyaki">Teriyaki</option>
+                        <option value="none">None</option>
+                    </select><br><br>
+                </div>    
                 <!-- special instructions -->
-                <label for="special_instructions">Special Instructions:</label><br>
-                <textarea id="special_instructions" name="special_instructions"></textarea><br>
+                 <div class="form-group">
+                    <label for="special_instructions">Special Instructions:</label><br>
+                    <textarea 
+                        id="special_instructions" 
+                        name="special_instructions"
+                        rows="4"
+                        placeholder="Any extra instructions?"
+                    ></textarea><br>
+                </div>
 
-                <button type="submit">Place Order</button>
-                <p id="error-message"></p>
+                <button type="submit" class="btn">Place Order</button>
+                <p id="error-message" class="error-message"></p>
             </form>
         </section>
 
-        <section class="output-section">
-            <h2>Order Summary</h2>
-            <div id="output">
-                <p>Your bowl summary will appear here after placing your order.</p>
+        <section class="summary-section">
+            <div class="card output-card">
+                <h2>Order Summary</h2>
+                <div id="output">
+                    <p>Your bowl summary will appear here after placing your order.</p>
+                </div>
+            </div>
+            
+            <div class="card history-card">
+                <h2>Past Orders</h2>
+                <div id="orderHistory">
+                    <p>No past orders yet.</p>
+                </div>
+                <button type="button" id="clearHistoryBtn" class="btn secondary-btn">
+                    Clear Past Orders
+                </button>
             </div>
         </section>
     </main>
+
+    <footer>
+        <h6>Energy Bowl Builder Team Project ®</h6>
+    </footer>
     
     <script src="js/script.js"></script>
 </body>
