@@ -24,8 +24,7 @@ class EnergyBowl {
                 return char.toUpperCase();
             });
     }
-
-    
-
-
 }
+
+document.getElementById("energyBowlForm").addEventListener("submit", function(event){
+    event.preventDefault()});
