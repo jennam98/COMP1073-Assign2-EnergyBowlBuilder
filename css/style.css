@@ -1,0 +1,7 @@
+body {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    background: linear-gradient(180deg, #f6fbf8 0%, #eef6f1 100%);
+    color: #3b4c44;
+    min-height: 100vh;
+    line-height: 1.5;
+}
