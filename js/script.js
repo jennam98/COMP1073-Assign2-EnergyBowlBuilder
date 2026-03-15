@@ -27,7 +27,7 @@ class EnergyBowl {
 }
 
 document.getElementById("energyBowlForm").addEventListener("submit", function(event){
-    event.preventDefault()});
+    event.preventDefault();
 
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
@@ -44,4 +44,24 @@ document.getElementById("energyBowlForm").addEventListener("submit", function(ev
 
     toppingCheckboxes.forEach(function(topping){
         toppings.push(topping.value);
+    });
+
+    const bowl = new EnergyBowl(name,email,phone,size,base,protein,toppings,
+        cheese,sauce,specialInstructions);
+    
+    const output = document.getElementById("output");
+
+    output.innerHTML = `
+        <h3>Order Confirmation</h3>
+        <p><strong>Order Number:</strong> ${bowl.orderNumber}</p>
+        <p><strong>Name:</strong> ${bowl.name}</p>
+        <p><strong>Email:</strong> ${bowl.email}</p>
+        <p><strong>Phone:</strong> ${bowl.phone}</p>
+        <p><strong>Size:</strong> ${bowl.formatText(bowl.size)}</p>
+        <p><strong>Base:</strong> ${bowl.formatText(bowl.base)}</p>
+        <p><strong>Protein:</strong> ${bowl.formatText(bowl.protein)}</p>
+        <p><strong>Toppings:</strong> ${bowl.toppings.length > 0 ? bowl.toppings.map(t => bowl.formatText(t)).join(", ") : "None"}</p>
+        <p><strong>Cheese:</strong> ${bowl.formatText(bowl.cheese)}</p>
+        <p><strong>Sauce:</strong> ${bowl.formatText(bowl.sauce)}</p>
+        <p><strong>Special Instructions:</strong> ${bowl.specialInstructions ? bowl.specialInstructions : "None"}</p>`;
     });
