@@ -28,3 +28,14 @@ class EnergyBowl {
 
 document.getElementById("energyBowlForm").addEventListener("submit", function(event){
     event.preventDefault()});
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const size = document.getElementById("size").value;
+    const base = document.getElementById("base").value;
+    const protein = document.getElementById("protein").value;
+    const cheese = document.getElementById("cheese").value;
+    const sauce = document.getElementById("sauce").value;
+    const specialInstructions = document.getElementById("special_instructions").value;
+
