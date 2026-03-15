@@ -5,3 +5,24 @@ body {
     min-height: 100vh;
     line-height: 1.5;
 }
+
+.hero {
+    background: linear-gradient(135deg, #6fcf97, #3aa76d);
+    color: white;
+    text-align: center;
+    padding: 48px 20px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.hero-content h1 {
+    font-size: 2.3rem;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.hero-content p {
+    font-size: 1rem;
+    max-width: 650px;
+    margin: 0 auto;
+    opacity: 0.95;
+}
