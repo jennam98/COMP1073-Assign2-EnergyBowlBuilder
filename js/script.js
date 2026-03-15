@@ -1,3 +1,4 @@
+
 class EnergyBowl {
     constructor(name, email, phone, size, base, protein, toppings, cheese, sauce, specialInstructions) {
         this.orderNumber = this.generateOrderNumber();
@@ -44,6 +45,19 @@ document.getElementById("energyBowlForm").addEventListener("submit", function(ev
 
     toppingCheckboxes.forEach(function(topping) {
         toppings.push(topping.value);
+
+
+    //Error message 
+    const errorMessage = document.getElementById("errorMessage");
+    errorMessage.textContent = "";
+
     });
+
+
+    // Validate form data
+    if (!name || !email || !phone || !size || !base || !protein) {
+        errorMessage.textContent = "Please fill in all required fields.";
+        return;
+    }
 
 });
