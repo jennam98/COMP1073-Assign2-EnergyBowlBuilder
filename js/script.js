@@ -39,3 +39,9 @@ document.getElementById("energyBowlForm").addEventListener("submit", function(ev
     const sauce = document.getElementById("sauce").value;
     const specialInstructions = document.getElementById("special_instructions").value;
 
+    const toppingCheckboxes = document.querySelectorAll('input[name="toppings"]:checked');
+    let toppings = [];
+
+    toppingCheckboxes.forEach(function(topping){
+        toppings.push(topping.value);
+    });
