@@ -55,7 +55,7 @@ document.getElementById("energyBowlForm").addEventListener("submit", function(ev
 
 
     // Validate form data
-    if (!name || !email || !phone || !size || !base || !protein) {
+    if (!name || !email || !phone || !size || !base || !protein || !cheese || !sauce) {
         errorMessage.textContent = "Please fill in all required fields.";
         return;
     }
