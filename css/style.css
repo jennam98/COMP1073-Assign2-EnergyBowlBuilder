@@ -27,15 +27,15 @@ body {
     opacity: 0.95;
 }
 .hero {
-    background: linear-gradient(135deg, #6fcf97, #3aa76d);
+    background: linear-gradient(135deg, #6fcf97, #b58b43);
     color: white;
     text-align: center;
     padding: 48px 20px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 14px rgba(0, 0, 0.08, 0.5);
 }
 
 .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 10px;
     letter-spacing: 0.5px;
 }
@@ -119,7 +119,7 @@ textarea {
     grid-template-columns: 1fr 1fr;
     gap: 10px 16px;
     margin-top: 8px;
-    background: #f8fcf9;
+    background: #93d1a2;
     border: 1px solid #dcebe1;
     border-radius: 14px;
     padding: 14px;
@@ -128,7 +128,8 @@ textarea {
 .checkbox-grid input[type="checkbox"] {
     width: auto;
     margin-right: 8px;
-    accent-color: #49a66f;
+    accent-color: #8bcfa7;
+    background: #93d1a2;
 }
 
 .checkbox-grid label {
@@ -136,6 +137,7 @@ textarea {
     font-weight: 500;
     color: #355444;
     margin-right: 10px;
+    background: #93d1a2;
 }
 
 .btn {
