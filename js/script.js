@@ -1,3 +1,4 @@
+// EneryBowl class and constructors
 class EnergyBowl {
     constructor(name, email, phone, size, base, protein, toppings, cheese, sauce, specialInstructions) {
         this.orderNumber = this.generateOrderNumber();
@@ -12,11 +13,12 @@ class EnergyBowl {
         this.sauce = sauce;
         this.specialInstructions = specialInstructions;
     }
-
+    // Generate a unique order number
     generateOrderNumber() {
         return Math.floor(10000 + Math.random() * 90000);
     }
 
+    //Function to help format text for display (e.g. "white_rice" -> "White Rice")
     formatText(value) {
         return value
             .replace(/_/g, " ")
@@ -24,7 +26,7 @@ class EnergyBowl {
                 return char.toUpperCase();
             });
     }
-
+// Return an emoji based on the base and protein choices
     getBowlEmoji(){
         if (this.base === "mixed_greens"){
             return "🥗";
@@ -43,7 +45,7 @@ class EnergyBowl {
         }
         return "🥣";
     }
-
+// Calculate the total price of the bowl based on selections
     calculatePrice(){
         let total = 0;
 
@@ -70,7 +72,7 @@ class EnergyBowl {
         
         return total.toFixed(2);
     }
-
+// Calculate the estimated calories of the bowl based on selections
     calculateCalories(){
         let calories = 0;
 
@@ -135,6 +137,8 @@ class EnergyBowl {
         return calories;
     }
 
+    // Generate the HTML description of the order for confirmation display
+
     getDescription() {
         const toppingsText = 
             this.toppings.length > 0
@@ -160,7 +164,7 @@ class EnergyBowl {
             </div>
         `;        
     }
-
+// Generate a simplified HTML card for displaying past orders in the order history section
     getHistoryCard(){
         const toppingsText =
             this.toppings.length > 0
@@ -180,13 +184,14 @@ class EnergyBowl {
         `;        
     }
 }
-
+//link html id's to js variables
 const form = document.getElementById("energyBowlForm");
 const output = document.getElementById("output");
 const errorMessage = document.getElementById("error-message");
 const orderHistory = document.getElementById("orderHistory");
 const clearHistoryBtn = document.getElementById("clearHistoryBtn");
 
+// Function to get all checked toppings and return them as an array
 function getCheckedToppings(){
     const toppingCheckboxes = document.querySelectorAll('input[name="toppings"]:checked');
     const toppings = [];
@@ -197,23 +202,23 @@ function getCheckedToppings(){
 
     return toppings;
 }
-
+// Function to save the order object to localStorage
 function saveOrder(orderObject){
     const existingOrders = JSON.parse(localStorage.getItem("energyBowlOrders")) || [];
     existingOrders.unshift(orderObject);
     localStorage.setItem("energyBowlOrders", JSON.stringify(existingOrders));
 }
-
+// Function to get past orders and display them in history section
 function loadPastOrders(){
     const savedOrders = JSON.parse(localStorage.getItem("energyBowlOrders")) || [];
-
+// If no past orders, show message instead of empty section
     if (savedOrders.length === 0){
         orderHistory.innerHTML = "<p>No past orders yet.</p>";
         return;
     }
 
     orderHistory.innerHTML = "";
-
+// Only show the 5 most recent orders in history
     savedOrders.slice(0, 5).forEach(function (orderData) {
         const bowl = new EnergyBowl(
             orderData.name,
@@ -231,7 +236,7 @@ function loadPastOrders(){
         orderHistory.innerHTML += bowl.getHistoryCard();
     });
 }
-
+// Function to clear past orders
 function clearPastOrders() {
     const confirmed = confirm("Are you sure you want to clear all past orders?");
 
@@ -240,7 +245,7 @@ function clearPastOrders() {
         orderHistory.innerHTML = "<p>No past orders yet.</p>";
     }
 }
-
+//Event listener for form submission
 form.addEventListener("submit", function (event) {
     event.preventDefault();
     errorMessage.textContent = "";
@@ -256,6 +261,7 @@ form.addEventListener("submit", function (event) {
     const specialInstructions = document.getElementById("special_instructions").value.trim();
     const toppings = getCheckedToppings();
 
+    // Validation checks
     if (name === ""){
         errorMessage.textContent = "Please enter your name.";
         return;
@@ -308,7 +314,7 @@ form.addEventListener("submit", function (event) {
         sauce,
         specialInstructions
     );
-
+    
     output.innerHTML = customerBowl.getDescription();
 
     saveOrder(customerBowl);
