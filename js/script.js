@@ -162,11 +162,25 @@ class EnergyBowl {
     }
 
     getHistoryCard(){
-        const toppingsText
+        const toppingsText =
+            this.toppings.length > 0
+                ? this.toppings.map((item) => this.formatText(item)).join(", ")
+                : "None";
+
+        return `
+            <div class="history-item">
+                <h4>Order #${this.orderNumber} - ${this.name}</h4>
+                <p><strong>Size:</strong> ${this.formatText(this.size)}</p>
+                <p><strong>Base:</strong> ${this.formatText(this.base)}</p>
+                <p><strong>Protein:</strong> ${this.formatText(this.protein)}</p>
+                <p><strong>Toppings:</strong> ${toppingsText}</p>
+                <p><strong>Total:</strong> $${this.calculatePrice()}</p>
+                <p><strong>Calories:</strong> ${this.calculateCalories()} cal</p>
+            </div>
+        `;        
     }
-
-
 }
+
 document.getElementById("energyBowlForm").addEventListener("submit", function(event){
     event.preventDefault();
 
