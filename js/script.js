@@ -135,6 +135,36 @@ class EnergyBowl {
         return calories;
     }
 
+    getDescription() {
+        const toppingsText = 
+            this.toppings.length > 0
+                ? this.toppings.map((item) => this.formatText(item)).join(", ")
+                : "None";
+
+        return `
+            <div class="order-confirmation">
+                <div class="bowl-emoji">${this.getBowlEmoji()}</div>
+                <div class="order-badge">Order #${this.orderNumber}</div>
+                <h3>Thank you, ${this.name}!</h3>
+                <p><strong>Email:</strong> ${this.email}</p>
+                <p><strong>Phone:</strong> ${this.phone}</p>
+                <p><strong>Size:</strong> ${this.formatText(this.size)}</p>
+                <p><strong>Base:</strong> ${this.formatText(this.base)}</p>
+                <p><strong>Protein:</strong> ${this.formatText(this.protein)}</p>
+                <p><strong>Toppings:</strong> ${toppingsText}</p>
+                <p><strong>Cheese:</strong> ${this.formatText(this.cheese)}</p>
+                <p><strong>Sauce:</strong> ${this.formatText(this.sauce)}</p>
+                <p><strong>Special Instructions:</strong> ${this.specialInstructions || "None"}</p>
+                <p class="total-price">Total Price: $${this.calculatePrice()}</p>
+                <p class="total-calories">Estimated Calories: ${this.calculateCalories()} cal</p>
+            </div>
+        `;        
+    }
+
+    getHistoryCard(){
+        const toppingsText
+    }
+
 
 }
 document.getElementById("energyBowlForm").addEventListener("submit", function(event){
