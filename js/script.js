@@ -72,6 +72,70 @@ class EnergyBowl {
 
     }
 
+    calculateCalories(){
+        let calories = 0;
+
+        const sizeCalories = {
+            regular: 0,
+            large: 120
+        };
+
+        const baseCalories = {
+            white_rice: 210,
+            brown_rice: 215,
+            mixed_greens: 40
+        };
+
+        const proteinCalories ={
+            chicken: 180,
+            beef: 220,
+            tofu: 140,
+            salmon: 200,
+            none: 0
+        };
+
+        const toppingCalories = {
+            avocado: 80,
+            tomato: 15,
+            lettuce: 10,
+            cucumber: 10,
+            onion: 15,
+            shredded_carrot: 20,
+            corn: 60,
+            black_beans: 70,
+            edamame: 90
+        };
+
+        const cheeseCalories = {
+            cheddar: 110,
+            mozzarella: 95,
+            feta: 75,
+            goat: 80,
+            none: 0
+        };
+
+        const sauceCalories = {
+            garlic_aioli: 130,
+            italian: 45,
+            balsamic: 50,
+            honey_mustard: 70,
+            teriyaki: 60,
+            none: 0
+        };
+
+        calories += sizeCalories[this.size] || 0;
+        calories += baseCalories[this.base] || 0;
+        calories += proteinCalories[this.protein] || 0;
+        calories += cheeseCalories[this.cheese] || 0;
+        calories += sauceCalories[this.sauce] || 0;
+
+        this.toppings.forEach((topping) => {
+            calories += toppingCalories[topping] || 0;
+        });
+        return calories;
+    }
+
+
 }
 document.getElementById("energyBowlForm").addEventListener("submit", function(event){
     event.preventDefault();
