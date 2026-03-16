@@ -8,7 +8,7 @@ class EnergyBowl {
         this.base = base;
         this.protein = protein;
         this.toppings = toppings;
-        this.chesse = cheese;
+        this.cheese = cheese;
         this.sauce = sauce;
         this.specialInstructions = specialInstructions;
     }
