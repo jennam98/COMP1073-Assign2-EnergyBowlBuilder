@@ -184,15 +184,16 @@ class EnergyBowl {
 document.getElementById("energyBowlForm").addEventListener("submit", function(event){
     event.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
     const size = document.getElementById("size").value;
     const base = document.getElementById("base").value;
     const protein = document.getElementById("protein").value;
     const cheese = document.getElementById("cheese").value;
     const sauce = document.getElementById("sauce").value;
-    const specialInstructions = document.getElementById("special_instructions").value;
+    const specialInstructions = document.getElementById("special_instructions").value.trim();
+    const toppings = getCheckedToppings();
 
     const toppingCheckboxes = document.querySelectorAll('input[name="toppings"]:checked');
     let toppings = [];
@@ -221,3 +222,141 @@ document.getElementById("energyBowlForm").addEventListener("submit", function(ev
         <p><strong>Special Instructions:</strong> ${bowl.specialInstructions ? bowl.specialInstructions : "None"}</p>`;
     });
 
+const form = document.getElementById("energyBowlForm");
+const output = document.getElementById("output");
+const errorMessage = document.getElementById("error-message");
+const orderHistory = document.getElementById("orderHistory");
+const clearHistoryBtn = document.getElementById("clearHistoryBtn");
+
+function getCheckedToppings(){
+    const toppingCheckboxes = document.querySelectorAll('input[name="toppings"]:checked');
+    const toppings = [];
+
+    toppingCheckboxes.forEach(function (checkbox){
+        toppings.push(checkbox.value);
+    });
+
+    return toppings;
+}
+
+function saveOrder(orderObject){
+    const existingOrders = JSON.parse(localStorage.getItem("energyBowlOrders")) || [];
+    existingOrders.unshift(orderObject);
+    localStorage.setItem("energyBowlOrders", JSON.stringify(existingOrders));
+}
+
+function loadPastOrders(){
+    const savedOrders = JSON.parse(localStorage.getItem("energyBowlOrders")) || [];
+
+    if (savedOrders.length === 0){
+        orderHistory.innerHTML = "<p>No past orders yet.</p>";
+        return;
+    }
+
+    orderHistory.innerHTML = "";
+
+    savedOrders.slice(0, 5).forEach(function (orderData) {
+        const bowl = new EnergyBowl(
+            orderData.name,
+            orderData.email,
+            orderData.phone,
+            orderData.size,
+            orderData.base,
+            orderData.protein,
+            orderData.toppings,
+            orderData.cheese,
+            orderData.sauce,
+            orderData.specialInstructions
+        );
+        bowl.orderNumber = orderData.orderNumber;
+        orderHistory.innerHTML += bowl.getHistoryCard();
+    });
+}
+
+function clearPastOrders() {
+    const confirmed = confirm("Are you sure you want to clear all past orders?");
+
+    if (confirmed){
+        localStorage.removeItem("energyBowlOrders");
+        orderHistory.innerHTML = "<p>No past orders yet.</p>";
+    }
+}
+
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    errorMessage.textContent = "";
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const size = document.getElementById("size").value;
+    const base = document.getElementById("base").value;
+    const protein = document.getElementById("protein").value;
+    const cheese = document.getElementById("cheese").value;
+    const sauce = document.getElementById("sauce").value;
+    const specialInstructions = document.getElementById("special_instructions").value.trim();
+    const toppings = getCheckedToppings();
+
+    if (name === ""){
+        errorMessage.textContent = "Please enter your name.";
+        return;
+    }
+
+    if (email === ""){
+        errorMessage.textContent = "Please enter your email.";
+    }
+
+    if (phone === "") {
+        errorMessage.textContent = "Please enter your phone number.";
+        return;
+    }
+
+    if (size === "") {
+        errorMessage.textContent = "Please select a size.";
+        return;
+    }
+
+    if (base === "") {
+        errorMessage.textContent = "Please select a base.";
+        return;
+    }
+
+    if (protein === "") {
+        errorMessage.textContent = "Please select a protein.";
+        return;
+    }
+
+    if (cheese === "") {
+        errorMessage.textContent = "Please select a cheese option.";
+        return;
+    }
+
+    if (sauce === "") {
+        errorMessage.textContent = "Please select a sauce.";
+        return;
+    }
+
+    const customerBowl = new EnergyBowl(
+        name,
+        email,
+        phone,
+        size,
+        base,
+        protein,
+        toppings,
+        cheese,
+        sauce,
+        specialInstructions
+    );
+
+    output.innerHTML = customerBowl.getDescription();
+
+    saveOrder(customerBowl);
+    loadPastOrders();
+
+    form.requestFullscreen();
+});
+
+clearHistoryBtn.addEventListener("click", clearPastOrders);
+
+loadPastOrders();
