@@ -167,4 +167,41 @@ textarea {
     background: linear-gradient(135deg, #8aa89a, #6f8f7f);
 }
 
+.summary-section {
+    display: flex;
+    flex-direction: column;
+}
+
+#output,
+#orderHistory {
+    background: #f9fcfa;
+    border: 1px dashed #cfe0d5;
+    border-radius: 14px;
+    padding: 16px;
+    min-height: 120px;
+    color: #2b4236;
+}
+
+#output h3 {
+    color: #1f5c3f;
+    margin-bottom: 12px;
+    font-size: 1.15rem;
+}
+
+#output p,
+#orderHistory p {
+    margin-bottom: 10px;
+    font-size: 0.96rem;
+}
+footer {
+    text-align: center;
+    padding: 18px 10px 26px;
+    color: #557363;
+}
+
+footer h6 {
+    font-size: 0.86rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+}
 
