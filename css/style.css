@@ -204,4 +204,35 @@ footer h6 {
     font-weight: 600;
     letter-spacing: 0.4px;
 }
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
 
+    .hero-content h1 {
+        font-size: 1.9rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-section,
+    .card {
+        padding: 20px;
+    }
+
+    .checkbox-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 38px 18px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.65rem;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+}
