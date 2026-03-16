@@ -24,8 +24,55 @@ class EnergyBowl {
                 return char.toUpperCase();
             });
     }
-}
 
+    getBowlEmoji(){
+        if (this.base === "mixed greens"){
+            return "🥗";
+        }
+        if (this.protein === "salmon"){
+            return "🍣";
+        }
+        if (this.protein === "beef"){
+            return "🥩";
+        }
+        if (this.protein === "chicken"){
+            return "🍗";
+        }
+        if (this.protein === "tofu"){
+            return "🥬";
+        }
+        return "🥣";
+    }
+
+    calculatePrice(){
+        let total = 0;
+
+        if (this.size === "regular"){
+            total += 9.99;    
+        } else if (this.size === "large"){
+            total += 12.99;
+        }
+
+        if (this.protein === "chicken" || this.protein === "tofu"){
+            total += 2.0;
+        } else if (this.protein === "beef" || this.protein === "salmon"){
+            total += 3.0;
+        }
+
+        total += this.toppings.length * 0.75;
+
+        if (this.cheese !== "none"){
+            total += 1.25;
+        }
+        if (this.sauce !== "none"){
+            total += 0.75;
+        }
+        
+        return total.toFixed(2);
+
+    }
+
+}
 document.getElementById("energyBowlForm").addEventListener("submit", function(event){
     event.preventDefault();
 
@@ -65,3 +112,4 @@ document.getElementById("energyBowlForm").addEventListener("submit", function(ev
         <p><strong>Sauce:</strong> ${bowl.formatText(bowl.sauce)}</p>
         <p><strong>Special Instructions:</strong> ${bowl.specialInstructions ? bowl.specialInstructions : "None"}</p>`;
     });
+
